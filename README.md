@@ -43,7 +43,7 @@ and returns the decoded sentence in string format:
 
 
 To deploy:
-##############################
+---------------------------------
 
 In command line, run command "pip install -r requirements.txt" to install dependancies
 
