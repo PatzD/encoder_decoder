@@ -1,9 +1,9 @@
+from pprint import pp
 import random
 import re
-from tabnanny import check
 
-sentence = "There are a lot of (leaves) on a tree"
-word = "spaghetti'"
+
+
 
 
 def check_special_character(word):
@@ -46,6 +46,8 @@ def encode_sentance(sentence):
     """Takes sentence, encodes each word in sentence where possible,
     returns encoded sentence andn original sentence sorted alphebetically"""
 
+    sep="\n-weird-\n"
+
     scrambled = []
     originals = []
     split_sentence = sentence.split(" ")
@@ -54,14 +56,16 @@ def encode_sentance(sentence):
         scrambled.append(scramble_word(word))
         originals.append(word)
 
-    return scrambled, sorted(originals, key=str.lower)
+    joined_sc = " ".join(scrambled)
+    joined_or = " ".join(sorted(originals, key=str.lower))
 
+    return sep, joined_sc, sep, joined_or
 
-encoded = ["Three", "are", "a", "lot", "of", "leaves", "on", "a", "tree"]
-or_sorted = ["a", "a", "are", "leaves", "lot", "of", "on", "There", "tree"]
-
-
-def decoder(encoded, original_sorted):
+    
+def decoder(encode, og_sorted):
+    """Takes encoded sentence and original sorted sentence, returns decoded sentence"""
+    encoded = encode.split(" ")
+    original_sorted = og_sorted.split(" ")
 
     decoded_sentence = []
     for word in encoded:
@@ -71,8 +75,12 @@ def decoder(encoded, original_sorted):
                 original_sorted.remove(word2)
     return decoded_sentence
 
+sentence = "There are a lot of (leaves) on a tree"
+word = "spaghetti'"
 
-print(decoder(encoded, or_sorted))
+# for i in encode_sentance(sentence):
+#     print(i)
+
 # a = ["as", "asd", "sdsd"]
 # a = "".join(a)
 # print(a)
