@@ -63,7 +63,7 @@ def encode_sentance(sentence):
 
     
 def decoder(encode, og_sorted):
-    """Takes encoded sentence and original sorted sentence, returns decoded sentence"""
+    """Takes encoded sentence and original sorted sentence in string format, returns decoded sentence"""
     encoded = encode.split(" ")
     original_sorted = og_sorted.split(" ")
 

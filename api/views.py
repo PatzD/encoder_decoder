@@ -19,4 +19,6 @@ def decode(request):
 
         decoded = functions.decoder(encoded, ori_sorted)
 
-        return response.Response(functions.encode_sentance(decoded))
+        decoded = " ".join(decoded)
+
+        return response.Response(decoded)
