@@ -1,5 +1,10 @@
 A simple api made using the django rest framework
 
+
+The api is deployed on herokuapp at: 
+https://encoder-decoder-patryk-drozdz.herokuapp.com/
+
+
 The api has two endpoints:
 
 
