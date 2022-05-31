@@ -8,8 +8,8 @@ https://encoder-decoder-patryk-drozdz.herokuapp.com/
 The api has two endpoints:
 
 
----------------------------------
 v1/encode/
+---------------------------------
 
 Used for encoding a desired sentence 
 Takes in json data in such format through http request:
@@ -24,10 +24,10 @@ And returns a encoded string along with the original string with the word ordere
 "i relaly lkie pepeplnias",
 "\n-weird-\n",
 "i like pineapples really"
----------------------------------
 
----------------------------------
+
 v1/decode/ 
+---------------------------------
 
 Used for decodign encoded data
 Takes in json data in such format through http request:
@@ -38,11 +38,12 @@ Takes in json data in such format through http request:
 
 and returns the decoded sentence in string format:
 "i really like pineapples"
----------------------------------
 
 
-##############################
+
+
 To deploy:
+##############################
 
 In command line, run command "pip install -r requirements.txt" to install dependancies
 
@@ -55,6 +56,6 @@ Run the command "python manage.py runserver" in command line
 The api should be running via djangos local test server
 
 Navigate to 127.0.0.1:8000/  and utilize the api endpoints as needed
-##############################
+
 
 To run unit tests for the encoding and decoding functions run the file test_fucntions.py from command line in the encode_decode_api directory
