@@ -1,9 +1,5 @@
-from pprint import pp
 import random
 import re
-
-
-
 
 
 def check_special_character(word):
@@ -28,14 +24,16 @@ def scramble_word(word):
 
     if len(word) > 3:
         first_letter, last_letter, word = (
-            word[0],
-            word[len(word) - 1],
-            list(word[1 : len(word) - 1]),
+            word[0],  # getting first
+            word[len(word) - 1],  # getting last
+            list(word[1 : len(word) - 1]),  # and middle letters of the word
         )
-        random.shuffle(word)
+        random.shuffle(word)  # shuffling the middle letters
 
-        word = "".join(word)
-        word = first_letter + word + last_letter
+        word = "".join(word)  # joining the letters from list to string
+        word = (
+            first_letter + word + last_letter
+        )  # adding first and last letters back to string
 
         return word
 
@@ -46,8 +44,9 @@ def encode_sentance(sentence):
     """Takes sentence, encodes each word in sentence where possible,
     returns encoded sentence andn original sentence sorted alphebetically"""
 
-    sep="\n-weird-\n"
+    sep = "\n-weird-\n"
 
+    # lists to hold scrambled words and original words
     scrambled = []
     originals = []
     split_sentence = sentence.split(" ")
@@ -61,7 +60,7 @@ def encode_sentance(sentence):
 
     return sep, joined_sc, sep, joined_or
 
-    
+
 def decoder(encode, og_sorted):
     """Takes encoded sentence and original sorted sentence in string format, returns decoded sentence"""
     encoded = encode.split(" ")
@@ -73,14 +72,6 @@ def decoder(encode, og_sorted):
             if len(word) == len(word2) and sorted(word) == sorted(word2):
                 decoded_sentence.append(word2)
                 original_sorted.remove(word2)
-    return decoded_sentence
 
-sentence = "There are a lot of (leaves) on a tree"
-word = "spaghetti'"
-
-# for i in encode_sentance(sentence):
-#     print(i)
-
-# a = ["as", "asd", "sdsd"]
-# a = "".join(a)
-# print(a)
+    decoded = " ".join(decoded_sentence)
+    return decoded
